@@ -99,28 +99,28 @@ string classify(string kind, string menu)
 string override(string page)
 {
 	matcher items = "(?<=<select name=whichitem2?>)(.*?)(?=<\/select>)".create_matcher(page);
-	matcher selected = 'selected (value=.*?>)'.create_matcher(page);
 
-	if (items.find())
+	string newitems = "";
+	
+	while (items.find())
 	{
-		string newitems = classify("item", group(items,0)).replace_string("selected value", "value");
-		
+	
+		if (newitems == "")
+		{
+			newitems = classify("item", group(items,0)).replace_string("selected value", "value");
+		}
+			
+		matcher selected = 'selected (value=.+?>)'.create_matcher(group(items,0));
+
 		if (selected.find())
 		{
-			repeat
-			{
-				page = page.replace_string(group(items,0), newitems.replace_string(group(selected, 1), group(selected, 0)));
-				items.find();
-			}
-			until (!selected.find());
+			page = page.replace_string(group(items,0), newitems.replace_string(group(selected, 1), group(selected, 0)));
+			print("replaced!");
 		}
 		else
 		{
-			repeat
-			{
-				page = page.replace_string(group(items,0), newitems);
-			}
-			until (!items.find());
+			page = page.replace_string(group(items,0), newitems);
+			print("also replaced!");
 		}
 	}
 	
