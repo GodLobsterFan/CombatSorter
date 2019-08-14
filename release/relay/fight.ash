@@ -115,12 +115,10 @@ string override(string page)
 		if (selected.find())
 		{
 			page = page.replace_string(group(items,0), newitems.replace_string(group(selected, 1), group(selected, 0)));
-			print("replaced!");
 		}
 		else
 		{
 			page = page.replace_string(group(items,0), newitems);
-			print("also replaced!");
 		}
 	}
 	
