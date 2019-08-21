@@ -1,5 +1,5 @@
 # CombatSorter
-Simple relay override for the Kingdom of Loathing to sort your combat items and skills into categories.
+A simple relay override for the Kingdom of Loathing that sorts your combat items and skills into categories.
 
 To install, just run...
 
