@@ -3,4 +3,4 @@ A simple relay override for the Kingdom of Loathing that sorts your combat items
 
 To install, just run...
 
-<pre>https://github.com/GodLobsterFan/CombatSorter/trunk/release</pre>
+<pre>svn checkout https://github.com/GodLobsterFan/CombatSorter/trunk/release</pre>
